@@ -13,38 +13,34 @@ function discount10(a, b) {
     return a - (a * b)
 }
 
-
-
-class country{
-    constructor(countryName,price){
+class country {
+    constructor(countryName, price) {
         this.countryName = countryName
         this.price = price
     }
 }
 
-
-const country1 = new country('spain',1800)
-const country2 = new country('france',2200)
-const country3 = new country('england',2100)
-
-
-
+const countries = [
+    new country('spain', 1800),
+    new country('france', 2200),
+    new country('england', 2100)
+]
 
 while (trip != 'accept') {
     switch (trip) {
-        case country1.countryName:
-            discount = discount10(country1.price, 0.10)
-            alert(`the price of the trip to ${trip} is $${country1.price} and with the 10% discount the total is ${discount}`)
+        case 'spain':
+            discount = discount10(countries[0].price, 0.10)
+            alert(`the price of the trip to ${trip} is $${countries[0].price} and with the 10% discount the total is ${discount}`)
             trip = prompt("write accept for confirm the trip!!").toLowerCase()
             break
-        case country2.countryName:
-            discount = discount10(country2.price, 0.10)
-            alert(`the price of the trip to ${trip} is $${country2.price} and with the 10% discount the total is ${discount}`)
+        case 'france':
+            discount = discount10(countries[1].price, 0.10)
+            alert(`the price of the trip to ${trip} is $${countries[1].price} and with the 10% discount the total is ${discount}`)
             trip = prompt("write accept for confirm the trip!!").toLowerCase()
             break
-        case country3.countryName:
-            discount = discount10(country3.price, 0.10)
-            alert(`the price of the trip to ${trip} is $${country3.price} and with the 10% discount the total is ${discount}`)
+        case 'england':
+            discount = discount10(countries[2].price, 0.10)
+            alert(`the price of the trip to ${trip} is $${countries[2].price} and with the 10% discount the total is ${discount}`)
             trip = prompt("write accept for confirm the trip!!").toLowerCase()
             break
         case '':
@@ -88,9 +84,16 @@ class wishCountry {
 }
 
 let newCountryName
-const countries = []
+const newCountries = []
 let newCountry = prompt('what country do you want to trabel with Traintips?')
-newCountryName = countries.push(new wishCountry(newCountry))
+
+const resultado = newCountries.some((el) => el.newCountry == countries[0].countryName)
+const resultado3 = newCountries.some((el) => el.newCountry == countries[1].countryName)
+const resultado2 = newCountries.some((el) => el.newCountry == countries[2].countryName)
+
+if (resultado == true || resultado2 == true || resultado3 == true) {
+    alert(`that country is already in TrainTrips`)
+}
 
 let confirmar = prompt('do you want to add a few more? (yes/no)')
 
@@ -98,14 +101,14 @@ if (confirmar == 'yes') {
 
     while (newCountry != 'esc') {
         newCountry = prompt('what country do you want to trabel with Traintrips? (write "esc" if you write all the countries that you want)').toLowerCase()
-        if(newCountry!="esc"){
+        if (newCountry != "esc") {
             newCountryName = new wishCountry(newCountry)
-            countries.push(newCountryName)
+            newCountries.push(newCountryName)
         }
     }
-    // countries.splice(countries.length - 1, 1)
 }
 alert('THANKS YOU SO MUCH FOR COMPLETE THIS POLL')
 
-console.log(countries)
-
+newCountries.forEach((newCountryName) => {
+    console.log(newCountryName)
+})
