@@ -13,18 +13,26 @@ function discount10(a, b) {
     return a - (a * b)
 }
 
-class country {
-    constructor(countryName, price) {
+
+
+class country{
+    constructor(countryName,price){
         this.countryName = countryName
         this.price = price
     }
 }
 
+
 const countries = [
-    new country('spain', 1800),
-    new country('france', 2200),
-    new country('england', 2100)
+    new country('spain',1800),
+    new country('france',2200),
+    new country('england',2100)
 ]
+
+
+
+
+
 
 while (trip != 'accept') {
     switch (trip) {
@@ -86,12 +94,13 @@ class wishCountry {
 let newCountryName
 const newCountries = []
 let newCountry = prompt('what country do you want to trabel with Traintips?')
+newCountryName = newCountries.push(new wishCountry(newCountry))
 
-const resultado = newCountries.some((el) => el.newCountry == countries[0].countryName)
-const resultado3 = newCountries.some((el) => el.newCountry == countries[1].countryName)
-const resultado2 = newCountries.some((el) => el.newCountry == countries[2].countryName)
+const resultado = newCountries.some((el)=>el.newCountry == countries[0].countryName)
+const resultado3 = newCountries.some((el)=>el.newCountry == countries[1].countryName)
+const resultado2 = newCountries.some((el)=>el.newCountry == countries[2].countryName)
 
-if (resultado == true || resultado2 == true || resultado3 == true) {
+if(resultado == true || resultado2 == true || resultado3 == true){
     alert(`that country is already in TrainTrips`)
 }
 
@@ -101,14 +110,16 @@ if (confirmar == 'yes') {
 
     while (newCountry != 'esc') {
         newCountry = prompt('what country do you want to trabel with Traintrips? (write "esc" if you write all the countries that you want)').toLowerCase()
-        if (newCountry != "esc") {
+        if(newCountry!="esc"){
             newCountryName = new wishCountry(newCountry)
             newCountries.push(newCountryName)
         }
     }
+    // countries.splice(countries.length - 1, 1)
 }
 alert('THANKS YOU SO MUCH FOR COMPLETE THIS POLL')
 
-newCountries.forEach((newCountryName) => {
+
+newCountries.forEach((newCountryName)=>{
     console.log(newCountryName)
 })
