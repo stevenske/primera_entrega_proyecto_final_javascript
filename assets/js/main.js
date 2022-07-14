@@ -96,11 +96,11 @@ const newCountries = []
 let newCountry = prompt('what country do you want to trabel with Traintips?')
 newCountryName = newCountries.push(new wishCountry(newCountry))
 
-const resultado = newCountries.some((el)=>el.newCountry == countries[0].countryName)
-const resultado3 = newCountries.some((el)=>el.newCountry == countries[1].countryName)
-const resultado2 = newCountries.some((el)=>el.newCountry == countries[2].countryName)
+const repeatedCountry = newCountries.some((el)=>el.newCountry == countries[0].countryName)
+const repeatedCountry2 = newCountries.some((el)=>el.newCountry == countries[1].countryName)
+const repeatedCountry3 = newCountries.some((el)=>el.newCountry == countries[2].countryName)
 
-if(resultado == true || resultado2 == true || resultado3 == true){
+if(repeatedCountry == true || repeatedCountry2 == true || repeatedCountry3 == true){
     alert(`that country is already in TrainTrips`)
 }
 
